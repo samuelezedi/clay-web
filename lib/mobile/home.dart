@@ -1,30 +1,14 @@
-import 'dart:math';
-
-import 'package:clay/color_palette.dart';
 import 'package:clay/lists.dart';
-import 'package:clay/mobile/home.dart';
-import 'package:clay/widgets/banner_big_text.dart';
-import 'package:clay/widgets/changing_container.dart';
-import 'package:clay/widgets/footer_section.dart';
-import 'package:clay/widgets/moving_image.dart';
-import 'package:clay/widgets/post_section.dart';
-import 'package:clay/widgets/review_section.dart';
-import 'package:clay/widgets/team_section.dart';
-import 'package:clay/widgets/top_nav.dart';
-import 'package:clay/widgets/video_section.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'extensions/double_extension.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class MobileHome extends StatefulWidget {
+  const MobileHome({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<MobileHome> createState() => _MobileHomeState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+class _MobileHomeState extends State<MobileHome> with TickerProviderStateMixin {
   late AnimationController controller;
   late Animation<Offset> offsetAnimation;
   late ScrollController _scrollController;
@@ -222,7 +206,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           : Container(),
       body: LayoutBuilder(builder: (context, constraint) {
         if (constraint.maxWidth < 990) {
-          return const MobileHome();
+          return const DashboardMobile();
         }
         return Stack(
           children: [

@@ -23,8 +23,8 @@ class NavItem extends StatelessWidget {
             border: Border(
                 bottom: BorderSide(
                     color: hover ? Colors.black : Colors.transparent,width: 2))),
-        padding: const EdgeInsets.symmetric(vertical: 30),
-        child: Text(title,style: const TextStyle(fontSize: 16,fontFamily: 'Arial',fontWeight: FontWeight.w300),),
+        padding: const EdgeInsets.symmetric(vertical: 40),
+        child: Text(title,style: const TextStyle(fontSize: 16,fontFamily: 'Arial',fontWeight: FontWeight.w300,color: Colors.black),),
       ),
     );
   }

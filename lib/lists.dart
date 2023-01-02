@@ -105,6 +105,7 @@ List<double> listOne = [
 List<double> list1 = [20, 18, 16, 14, 11, 9, 7, 4, 2, 0];
 
 List<double> list2 = [0.5, 0.45, 0.40, 0.35, 0.30, 0.25, 0.20, 0.15, 0.1, 0];
+List<double> list4 = [1, 0.4, 0.1, 0.1, 0.0, 0.0, 0.0,0.0,0.0,0.0];
 
 List<double> list3 = [-20, -18, -16, -14, -11, -9, -7, -4, -2, -0];
 List<double> list33 = [
