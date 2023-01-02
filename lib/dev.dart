@@ -44,11 +44,38 @@ class _DevPageState extends State<DevPage> {
             padding: const EdgeInsets.symmetric(horizontal: 70),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Container(
-                child: Column(children: [
-                  
-                ]),
-              )],
+              children: [
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                    Row(
+                      children: [Text("Explore our Tech Page")],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                            'Creating a cross platform editor has been quite challenging. Learn how we overcome complex technical problems.')
+                      ],
+                    ),
+                    ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0, backgroundColor: Colors.black),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 19, horizontal: 20),
+                          child: Text(
+                            'Try Clay for free',
+                            style: TextStyle(
+                                color: Palette.primary,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ))
+                  ]),
+                )
+              ],
             ),
           ),
           SizedBox(
