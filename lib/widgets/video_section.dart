@@ -20,9 +20,9 @@ class _VideoSectionState extends State<VideoSection> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(color: Colors.white),
-      child: Column(children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         const SizedBox(
-          height: 130,
+          height: 150,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 70),
@@ -30,10 +30,10 @@ class _VideoSectionState extends State<VideoSection> {
             children: const [
               Flexible(
                 child: Text(
-                  'You amazing products deserve amazing content.',
+                  'You amazing products deserve\namazing content.',
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 80,
+                      fontSize: 70,
                       fontWeight: FontWeight.w400),
                 ),
               ),
@@ -41,7 +41,7 @@ class _VideoSectionState extends State<VideoSection> {
           ),
         ),
         const SizedBox(
-          height: 80,
+          height: 150,
         ),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 70),
@@ -124,6 +124,9 @@ class _VideoSectionState extends State<VideoSection> {
               )
             ],
           ),
+        ),
+        const SizedBox(
+          height: 140,
         )
       ]),
     );

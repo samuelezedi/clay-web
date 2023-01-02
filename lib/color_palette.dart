@@ -38,4 +38,10 @@ class Palette {
   static MaterialColor lightTeal = const MaterialColor(0xFF8ad2e9, _shade);
 
   static MaterialColor lightGrey = const MaterialColor(0xFFf4f4f5, _shade);
+
+  static MaterialColor pinkPurple = const MaterialColor(0xFFbc64a4, _shade);
+
+  static MaterialColor lightYellow = const MaterialColor(0xFFfcdd9a, _shade);
+
+  static MaterialColor orane = const MaterialColor(0xFFf89163, _shade);
 }

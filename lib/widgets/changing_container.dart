@@ -1,6 +1,5 @@
 import 'package:clay/color_palette.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 
 class ChangingContainer extends StatefulWidget {
   const ChangingContainer({required this.video, super.key});

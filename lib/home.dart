@@ -5,6 +5,8 @@ import 'package:clay/lists.dart';
 import 'package:clay/widgets/banner_big_text.dart';
 import 'package:clay/widgets/changing_container.dart';
 import 'package:clay/widgets/moving_image.dart';
+import 'package:clay/widgets/post_section.dart';
+import 'package:clay/widgets/review_section.dart';
 import 'package:clay/widgets/top_nav.dart';
 import 'package:clay/widgets/video_section.dart';
 import 'package:expandable/expandable.dart';
@@ -209,17 +211,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Positioned(
-                    left: 0.0,
-                    right: 0.0,
-                    child: FractionalTranslation(
-                      translation: Offset(initialPointX, 0.0),
-                      child: MovingCardWidget(
-                        offset: Offset(initialPointX, 15.0),
-                        vDrag: vDrag,
-                        hDrag: hDrag,
-                        image: 'assets/images/home-large.png',
-                      ),
+                  FractionalTranslation(
+                    translation: Offset(initialPointX, 0.0),
+                    child: MovingCardWidget(
+                      offset: Offset(initialPointX, 15.0),
+                      vDrag: vDrag,
+                      hDrag: hDrag,
+                      image: 'assets/images/home-large.png',
                     ),
                   ),
                   Container(
@@ -233,7 +231,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               decoration: const BoxDecoration(color: Colors.white),
               child: Column(children: [
                 const SizedBox(
-                  height: 100,
+                  height: 150,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 70),
@@ -243,14 +241,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         'Adored by more than 100,000\nbusinesses, Clay elevates your\nproducts. No design experience\nneeded.',
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 80,
+                            fontSize: 70,
                             fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
                 ),
                 const SizedBox(
-                  height: 80,
+                  height: 150,
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 70),
@@ -266,16 +264,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         Row(
                           children: [
                             Container(
-                              height: 80,
-                              width: 80,
+                              height: 60,
+                              width: 60,
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(80),
+                                  borderRadius: BorderRadius.circular(60),
                                   image: const DecorationImage(
                                       image: AssetImage(
                                           'assets/images/eleuteri.png'))),
                             ),
                             const SizedBox(
-                              width: 10,
+                              width: 20,
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -291,6 +289,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                           color: Colors.white),
                                     )
                                   ],
+                                ),
+                                const SizedBox(
+                                  height: 5,
                                 ),
                                 Row(
                                   children: const [
@@ -314,7 +315,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           children: const [
                             Flexible(
                               child: Text(
-                                '"Communicating the beauty and\nelegance of physical art online is never\neasy, Clay turns our products into digital\nart, allowing a seamless transition\nbetween two worlds, completing the\nimmersion."',
+                                '"Communicating the beauty and elegance of physical art online is never easy, Clay turns our products into digital art, allowing a seamless transition between two worlds, completing the immersion."',
                                 style: TextStyle(
                                     fontSize: 23, color: Colors.white),
                               ),
@@ -342,9 +343,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ]),
             ),
             const Divider(
-              height: 0.7,
+              height: 1,
             ),
-            const VideoSection()
+            const VideoSection(),
+            const Divider(
+              height: 1,
+            ),
+            const ReviewSection(),
+            const Divider(
+              height: 1,
+            ),
+            PostSection(),
+            const Divider(
+              height: 1,
+            ),
           ],
         ),
       ),
