@@ -1,4 +1,5 @@
-import 'package:clay/color_palette.dart';
+
+import 'package:clay/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class ChangingContainer extends StatefulWidget {

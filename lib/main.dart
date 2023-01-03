@@ -1,5 +1,6 @@
-import 'package:clay/dev.dart';
-import 'package:clay/home.dart';
+
+import 'package:clay/screens/web/home.dart';
+import 'package:clay/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,9 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Clay',
-      theme: ThemeData(
-          primarySwatch: Colors.blue,
-          fontFamily: 'Halenoir'),
+      theme: ThemeData(primarySwatch: Palette.primary, fontFamily: 'Halenoir'),
       home: const HomePage(),
     );
   }

@@ -1,4 +1,4 @@
-import 'package:clay/color_palette.dart';
+import 'package:clay/utils/color_palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -757,8 +757,8 @@ class _FooterSectionState extends State<FooterSection> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     'Newsletter',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,

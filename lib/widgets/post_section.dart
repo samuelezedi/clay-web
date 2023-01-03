@@ -1,4 +1,5 @@
-import 'package:clay/color_palette.dart';
+
+import 'package:clay/utils/color_palette.dart';
 import 'package:clay/widgets/post_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -195,7 +196,7 @@ class PostSection extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 130,
         )
       ]),
@@ -268,7 +269,7 @@ class PostSection extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 130,
         )
       ]),

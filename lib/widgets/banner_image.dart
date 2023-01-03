@@ -1,4 +1,5 @@
-import 'package:clay/color_palette.dart';
+
+import 'package:clay/utils/color_palette.dart';
 import 'package:clay/widgets/moving_image.dart';
 import 'package:flutter/material.dart';
 

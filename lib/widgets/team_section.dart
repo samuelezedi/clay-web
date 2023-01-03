@@ -1,4 +1,5 @@
-import 'package:clay/color_palette.dart';
+
+import 'package:clay/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class TeamSection extends StatelessWidget {
@@ -336,7 +337,7 @@ class TeamSection extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 130,
         )
       ]),
@@ -500,7 +501,7 @@ class TeamSection extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 130,
         )
       ]),

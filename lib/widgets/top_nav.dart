@@ -1,4 +1,5 @@
-import 'package:clay/color_palette.dart';
+
+import 'package:clay/utils/color_palette.dart';
 import 'package:clay/widgets/nav_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -105,7 +106,7 @@ class _TopNavigationState extends State<TopNavigation> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       child: Row(
-                        children: [
+                        children: const [
                           Text(
                             'Career',
                             style: TextStyle(fontSize: 18),
@@ -120,7 +121,7 @@ class _TopNavigationState extends State<TopNavigation> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       child: Row(
-                        children: [
+                        children: const [
                           Text(
                             'Blog',
                             style: TextStyle(fontSize: 18),
@@ -137,7 +138,7 @@ class _TopNavigationState extends State<TopNavigation> {
                       children: [
                         Expanded(
                           child: ElevatedButton.icon(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.apple,
                                 color: Colors.white,
                                 size: 17,
@@ -164,7 +165,7 @@ class _TopNavigationState extends State<TopNavigation> {
                       children: [
                         Expanded(
                           child: ElevatedButton.icon(
-                              icon: Icon(
+                              icon: const Icon(
                                 CupertinoIcons.play_fill,
                                 color: Colors.white,
                                 size: 17,
@@ -263,7 +264,7 @@ class _TopNavigationState extends State<TopNavigation> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Row(
-                    children: [
+                    children: const [
                       Text(
                         'Career',
                         style: TextStyle(fontSize: 18),
@@ -278,7 +279,7 @@ class _TopNavigationState extends State<TopNavigation> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Row(
-                    children: [
+                    children: const [
                       Text(
                         'Blog',
                         style: TextStyle(fontSize: 18),
@@ -295,7 +296,7 @@ class _TopNavigationState extends State<TopNavigation> {
                   children: [
                     Expanded(
                       child: ElevatedButton.icon(
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.apple,
                             color: Colors.white,
                             size: 17,
@@ -321,7 +322,7 @@ class _TopNavigationState extends State<TopNavigation> {
                   children: [
                     Expanded(
                       child: ElevatedButton.icon(
-                          icon: Icon(
+                          icon: const Icon(
                             CupertinoIcons.play_fill,
                             color: Colors.white,
                             size: 17,

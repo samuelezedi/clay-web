@@ -1,6 +1,6 @@
-import 'package:clay/color_palette.dart';
 import 'package:clay/entities/review.dart';
 import 'package:clay/extensions/list_extension.dart';
+import 'package:clay/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class ReviewSection extends StatefulWidget {
@@ -29,7 +29,7 @@ class _ReviewSectionState extends State<ReviewSection> {
       "name": "Henrin",
       "title": "Worth paying money",
       "text":
-          "I only used the free version but it’s fashionable and on top of that, full of things that make me think \“I wish I could do this\"."
+          "I only used the free version but it’s fashionable and on top of that, full of things that make me think “I wish I could do this\"."
     },
     {
       "name": "cat_0046",
@@ -510,7 +510,7 @@ class _ReviewSectionState extends State<ReviewSection> {
                 );
               }),
         ),
-        SizedBox(
+        const SizedBox(
           height: 50,
         ),
         Padding(

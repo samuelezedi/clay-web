@@ -1,4 +1,3 @@
-import 'package:clay/color_palette.dart';
 import 'package:clay/widgets/changing_container.dart';
 import 'package:clay/widgets/expandable_item.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +36,7 @@ class _VideoSectionState extends State<VideoSection> {
   }
 
   mobile() {
-     return Container(
+    return Container(
       decoration: const BoxDecoration(color: Colors.white),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         const SizedBox(
@@ -97,7 +96,7 @@ class _VideoSectionState extends State<VideoSection> {
                         });
                       }),
                   ExpandableItem(
-                    fontSize: 17,
+                      fontSize: 17,
                       subFS: 15,
                       iconSize: 20,
                       image: 'assets/images/anima.png',
@@ -115,7 +114,7 @@ class _VideoSectionState extends State<VideoSection> {
                         });
                       }),
                   ExpandableItem(
-                    fontSize: 17,
+                      fontSize: 17,
                       subFS: 15,
                       iconSize: 20,
                       image: 'assets/images/switch.png',
@@ -134,7 +133,7 @@ class _VideoSectionState extends State<VideoSection> {
                         });
                       }),
                   ExpandableItem(
-                    fontSize: 17,
+                      fontSize: 17,
                       subFS: 15,
                       iconSize: 20,
                       image: 'assets/images/eclipse.png',
@@ -317,7 +316,7 @@ class _VideoSectionState extends State<VideoSection> {
                 width: 50,
               ),
               Expanded(
-                child: Container(
+                child: SizedBox(
                   child: Column(children: [
                     ExpandableItem(
                         image: 'assets/images/star.png',
