@@ -1,32 +1,25 @@
-import 'dart:math';
-
 import 'package:clay/color_palette.dart';
+import 'package:clay/home.dart';
 import 'package:clay/lists.dart';
-import 'package:clay/mobile/home.dart';
-import 'package:clay/tablet/home.dart';
 import 'package:clay/widgets/banner_big_text.dart';
 import 'package:clay/widgets/banner_image.dart';
-import 'package:clay/widgets/changing_container.dart';
 import 'package:clay/widgets/footer_section.dart';
-import 'package:clay/widgets/moving_image.dart';
 import 'package:clay/widgets/post_section.dart';
 import 'package:clay/widgets/review_section.dart';
 import 'package:clay/widgets/team_section.dart';
 import 'package:clay/widgets/top_nav.dart';
 import 'package:clay/widgets/video_section.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'extensions/double_extension.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class TabletHome extends StatefulWidget {
+  const TabletHome({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<TabletHome> createState() => _TabletHomeState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+class _TabletHomeState extends State<TabletHome> with TickerProviderStateMixin {
   late AnimationController controller;
   late Animation<Offset> offsetAnimation;
   late ScrollController _scrollController;
@@ -118,57 +111,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     double level = getNewValue(_scrollController.offset);
     currentPosition = level;
 
-    if (level > 13 || level < 2) {
-      //show av
-      setState(() {
-        navHeight = 100;
-      });
-    } else {
-      setState(() {
-        navHeight = 0;
-      });
-    }
-
-    if (level > 13) {
-      setState(() {
-        showNavBorder = true;
-        navBackColor = Colors.white;
-      });
-    } else {
-      setState(() {
-        showNavBorder = false;
-        navBackColor = Colors.transparent;
-      });
-    }
-
     if (_scrollController.position.userScrollDirection ==
             ScrollDirection.reverse ||
         _scrollController.position.pixels > currentPos) {
       currentPos = _scrollController.position.pixels;
       // scrolling down
 
-      int index = switchDownOperation(level);
-      print('scrolling down $initialPointX');
-      setState(() {
-        hDrag = list1[index];
-        initialPointX = list2[index];
-        textColor = list4[index];
-        vDrag = list3[index];
-      });
+      print('scrolling down ');
     } else if (_scrollController.position.userScrollDirection ==
             ScrollDirection.forward ||
         _scrollController.position.pixels < currentPos) {
       currentPos = _scrollController.position.pixels;
       // scrollig up
-      int index = switchUpOperation(level);
-      print('scrolling up $index');
 
-      setState(() {
-        hDrag = list1[index];
-        initialPointX = list2[index];
-        textColor = list4[index];
-        vDrag = list3[index];
-      });
+      print('scrolling up ');
     }
   }
 
@@ -223,15 +179,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             )
           : Container(),
       body: LayoutBuilder(builder: (context, constraint) {
-        if (constraint.maxWidth < 700) {
-          return const MobileHome();
-        }
+        if (constraint.maxWidth < 700) {}
 
-        if (constraint.maxWidth > 700 && constraint.maxWidth < 1100) {
+        if (constraint.maxWidth > 1100) {
           //tablet
-          return const TabletHome();
+          return const HomePage();
         }
-
         return Stack(
           children: [
             SingleChildScrollView(
@@ -239,74 +192,71 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
-                  Stack(children: [
-                    Container(
-                      height: 1000,
-                      decoration: BoxDecoration(
-                        color: Palette.primary,
-                      ),
-                      child: Image.asset('assets/images/line.png'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 70),
-                      child: SizedBox(
-                        height: 1000,
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const SizedBox(
-                                height: 300,
-                              ),
-                              BigTextWidget(
-                                textColor: Colors.black.withOpacity(textColor),
-                              ),
-                              const SizedBox(
-                                height: 27,
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    'Create great content for your products, brands, and services.\nAll without a designer.',
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                    child: SizedBox(
+                      // height: 1000,
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const SizedBox(
+                              height: 150,
+                            ),
+                            BigTextWidget(
+                              textColor: Colors.black.withOpacity(textColor),
+                            ),
+                            const SizedBox(
+                              height: 27,
+                            ),
+                            Row(
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    'Create great content for your products, brands, and services. All without a designer.',
                                     style: TextStyle(
                                         fontSize: 24,
                                         fontFamily: 'Halenoir',
-                                        color: Colors.black
-                                            .withOpacity(textColor)),
+                                        color:
+                                            Colors.black.withOpacity(textColor)),
                                   ),
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 25,
-                              ),
-                              ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                      elevation: 0,
-                                      backgroundColor:
-                                          Colors.black.withOpacity(textColor)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 19, horizontal: 20),
-                                    child: Text(
-                                      'Try Clay for free',
-                                      style: TextStyle(
-                                          color: Palette.primary,
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ))
-                            ]),
-                      ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 25,
+                            ),
+                            ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                    elevation: 0,
+                                    backgroundColor:
+                                        Colors.black.withOpacity(textColor)),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 19, horizontal: 20),
+                                  child: Text(
+                                    'Try Clay for free',
+                                    style: TextStyle(
+                                        color: Palette.primary,
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )),
+                            const SizedBox(
+                              height: 100,
+                            ),
+                            Image.asset('assets/images/home-large.png'),
+                            const SizedBox(
+                              height: 130,
+                            ),
+                          ]),
                     ),
-                    // const Padding(
-                    //     padding: EdgeInsets.symmetric(horizontal: 70),
-                    //     child: TopNavigation(color: Colors.transparent)),
-                    BannerImage(
-                        initialPointX: initialPointX,
-                        hDrag: hDrag,
-                        vDrag: vDrag),
-                  ]),
+                  ),
+                  // const Padding(
+                  //     padding: EdgeInsets.symmetric(horizontal: 70),
+                  //     child: TopNavigation(color: Colors.transparent)),
+
                   Container(
                     decoration: const BoxDecoration(color: Colors.white),
                     child: Column(children: [
@@ -314,15 +264,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         height: 150,
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 70),
+                        padding: const EdgeInsets.symmetric(horizontal: 50),
                         child: Row(
                           children: const [
-                            Text(
-                              'Adored by more than 100,000\nbusinesses, Clay elevates your\nproducts. No design experience\nneeded.',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 70,
-                                  fontWeight: FontWeight.w400),
+                            Flexible(
+                              child: Text(
+                                'Adored by more than 100,000 businesses, Clay elevates your products. No design experience needed.',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 65,
+                                    fontWeight: FontWeight.w400),
+                              ),
                             ),
                           ],
                         ),
@@ -331,15 +283,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         height: 150,
                       ),
                       Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 70),
-                        height: 650,
+                        margin: const EdgeInsets.symmetric(horizontal: 50),
+                        // height: 650,
                         decoration: BoxDecoration(
                             color: Palette.chacola,
                             borderRadius: BorderRadius.circular(2)),
-                        child: Row(children: [
+                        child: Column(children: [
                           Container(
                             padding: const EdgeInsets.all(50),
-                            width: MediaQuery.of(context).size.width * 0.38,
+                            // width: MediaQuery.of(context).size.width * 0.38,
                             child: Column(children: [
                               Row(
                                 children: [
@@ -405,17 +357,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               )
                             ]),
                           ),
-                          Expanded(
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                image: AssetImage(
-                                  'assets/images/woman.jpeg',
-                                ),
-                                fit: BoxFit.cover,
-                              )),
-                            ),
-                          )
+                          Container(
+                            height: 500,
+                            decoration: const BoxDecoration(
+                                image: DecorationImage(
+                              image: AssetImage(
+                                'assets/images/woman.jpeg',
+                              ),
+                              fit: BoxFit.cover,
+                            )),
+                          ),
                         ]),
                       ),
                       const SizedBox(

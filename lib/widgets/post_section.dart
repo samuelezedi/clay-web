@@ -28,6 +28,181 @@ class PostSection extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    return LayoutBuilder(builder: (context, constraint) {
+      if (constraint.maxWidth < 700) {
+        return mobile();
+      }
+
+      if (constraint.maxWidth > 700 && constraint.maxWidth < 1100) {
+        //tablet
+        return tablet();
+      }
+      return web();
+    });
+  }
+
+  mobile() {
+    return Container(
+      color: Colors.white,
+      child: Column(children: [
+        const SizedBox(
+          height: 80,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              Expanded(
+                child: PostWidget(
+                    image: list[0]['image'].toString(),
+                    tag: list[0]['tag'].toString(),
+                    time: list[0]['time'].toString(),
+                    title: list[0]['title'].toString(),
+                    color: Palette.pinkPurple,
+                    fontColor: Colors.white),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              Expanded(
+                child: PostWidget(
+                    image: list[1]['image'].toString(),
+                    tag: list[1]['tag'].toString(),
+                    time: list[1]['time'].toString(),
+                    title: list[1]['title'].toString(),
+                    color: Palette.lightYellow,
+                    fontColor: Colors.black),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              Expanded(
+                child: PostWidget(
+                    image: list[2]['image'].toString(),
+                    tag: list[2]['tag'].toString(),
+                    time: list[2]['time'].toString(),
+                    title: list[2]['title'].toString(),
+                    color: Palette.orane,
+                    fontColor: Colors.black),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 80,
+        )
+      ]),
+    );
+  }
+
+  tablet() {
+    return Container(
+      color: Colors.white,
+      child: Column(children: [
+        const SizedBox(
+          height: 150,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50),
+          child: Row(
+            children: const [
+              Flexible(
+                child: Text(
+                  'Tutorials and insights for your brand',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 65,
+                      fontWeight: FontWeight.w400),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 130,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50),
+          child: Row(
+            children: [
+              Expanded(
+                child: PostWidget(
+                    image: list[0]['image'].toString(),
+                    tag: list[0]['tag'].toString(),
+                    time: list[0]['time'].toString(),
+                    title: list[0]['title'].toString(),
+                    color: Palette.pinkPurple,
+                    fontColor: Colors.white),
+              ),
+              const SizedBox(
+                width: 40,
+              ),
+              Expanded(
+                child: PostWidget(
+                    image: list[1]['image'].toString(),
+                    tag: list[1]['tag'].toString(),
+                    time: list[1]['time'].toString(),
+                    title: list[1]['title'].toString(),
+                    color: Palette.lightYellow,
+                    fontColor: Colors.black),
+              ),
+              // const SizedBox(
+              //   width: 40,
+              // ),
+              // Expanded(
+              //   child: PostWidget(
+              //       image: list[2]['image'].toString(),
+              //       tag: list[2]['tag'].toString(),
+              //       time: list[2]['time'].toString(),
+              //       title: list[2]['title'].toString(),
+              //       color: Palette.orane,
+              //       fontColor: Colors.black),
+              // )
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 70,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50),
+          child: Row(
+            children: [
+              Expanded(
+                child: PostWidget(
+                    image: list[2]['image'].toString(),
+                    tag: list[2]['tag'].toString(),
+                    time: list[2]['time'].toString(),
+                    title: list[2]['title'].toString(),
+                    color: Palette.orane,
+                    fontColor: Colors.black),
+              ),
+              Expanded(child: Container())
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 130,
+        )
+      ]),
+    );
+  }
+
+  web() {
     return Container(
       color: Colors.white,
       child: Column(children: [
@@ -66,7 +241,9 @@ class PostSection extends StatelessWidget {
                     color: Palette.pinkPurple,
                     fontColor: Colors.white),
               ),
-              const SizedBox(width: 40,),
+              const SizedBox(
+                width: 40,
+              ),
               Expanded(
                 child: PostWidget(
                     image: list[1]['image'].toString(),

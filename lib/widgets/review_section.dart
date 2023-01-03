@@ -63,6 +63,356 @@ class _ReviewSectionState extends State<ReviewSection> {
   ];
   @override
   Widget build(BuildContext context) {
+    return LayoutBuilder(builder: (context, constraint) {
+      if (constraint.maxWidth < 700) {
+        return mobile();
+      }
+
+      if (constraint.maxWidth > 700 && constraint.maxWidth < 1100) {
+        //tablet
+        return tablet();
+      }
+
+      return web();
+    });
+  }
+
+  mobile() {
+    return Container(
+      color: Colors.white,
+      child: Column(children: [
+        const SizedBox(
+          height: 80,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: const [
+              Flexible(
+                child: Text(
+                  'Read what our users think about us.',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w400),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 80,
+        ),
+        SizedBox(
+          height: 400,
+          child: ListView.separated(
+              controller: controller,
+              scrollDirection: Axis.horizontal,
+              separatorBuilder: (context, index) {
+                if (!list.isLastIndex(index)) {
+                  return const SizedBox(
+                    width: 25,
+                  );
+                }
+
+                return const SizedBox(
+                  width: 0,
+                );
+              },
+              itemCount: list.length,
+              itemBuilder: (context, index) {
+                final data = ReviewModel.fromJson(list[index]);
+                return Container(
+                  width: 400,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 50),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Palette.lightGrey),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.asset(
+                          'assets/images/stars.png',
+                          width: 150,
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          data.title,
+                          style: const TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Flexible(
+                                child: Text(
+                              data.text,
+                              style: const TextStyle(fontSize: 18),
+                            )),
+                          ],
+                        ),
+                        Expanded(
+                          child: Container(),
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              data.name,
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ]),
+                );
+              }),
+        ),
+        const SizedBox(
+          height: 50,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              InkWell(
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                onTap: () {
+                  double offset = controller.offset - 400;
+                  controller.animateTo(offset,
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeIn);
+                },
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Palette.lightGrey),
+                  child: const Center(
+                    child: Icon(
+                      Icons.arrow_back_ios_new_rounded,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              InkWell(
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                onTap: () {
+                  double offset = controller.offset + 400;
+                  controller.animateTo(offset,
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeIn);
+                },
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Palette.lightGrey),
+                  child: const Center(
+                    child: Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 80,
+        )
+      ]),
+    );
+  }
+
+  tablet() {
+    return Container(
+      color: Colors.white,
+      child: Column(children: [
+        const SizedBox(
+          height: 130,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50),
+          child: Row(
+            children: const [
+              Flexible(
+                child: Text(
+                  'Read what our users think about us.',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 65,
+                      fontWeight: FontWeight.w400),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 130,
+        ),
+        SizedBox(
+          height: 400,
+          child: ListView.separated(
+              controller: controller,
+              scrollDirection: Axis.horizontal,
+              physics: const NeverScrollableScrollPhysics(),
+              separatorBuilder: (context, index) {
+                if (!list.isLastIndex(index)) {
+                  return const SizedBox(
+                    width: 25,
+                  );
+                }
+
+                return const SizedBox(
+                  width: 0,
+                );
+              },
+              itemCount: list.length,
+              itemBuilder: (context, index) {
+                final data = ReviewModel.fromJson(list[index]);
+                return Container(
+                  width: 400,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 50),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Palette.lightGrey),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.asset(
+                          'assets/images/stars.png',
+                          width: 150,
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          data.title,
+                          style: const TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Flexible(
+                                child: Text(
+                              data.text,
+                              style: const TextStyle(fontSize: 18),
+                            )),
+                          ],
+                        ),
+                        Expanded(
+                          child: Container(),
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              data.name,
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ]),
+                );
+              }),
+        ),
+        const SizedBox(
+          height: 50,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50),
+          child: Row(
+            children: [
+              InkWell(
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                onTap: () {
+                  double offset = controller.offset - 400;
+                  controller.animateTo(offset,
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeIn);
+                },
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Palette.lightGrey),
+                  child: const Center(
+                    child: Icon(
+                      Icons.arrow_back_ios_new_rounded,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              InkWell(
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                onTap: () {
+                  double offset = controller.offset + 400;
+                  controller.animateTo(offset,
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeIn);
+                },
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Palette.lightGrey),
+                  child: const Center(
+                    child: Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 130,
+        )
+      ]),
+    );
+  }
+
+  web() {
     return Container(
       color: Colors.white,
       child: Column(children: [
