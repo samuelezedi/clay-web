@@ -74,7 +74,10 @@ class _FooterSectionState extends State<FooterSection> {
             children: [
               Expanded(
                 child: ElevatedButton.icon(
-                    icon: const Icon(Icons.apple),
+                    icon: const Icon(
+                      Icons.apple,
+                      color: Colors.white,
+                    ),
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                         elevation: 0, backgroundColor: const Color(0xff303035)),
@@ -102,7 +105,10 @@ class _FooterSectionState extends State<FooterSection> {
             children: [
               Expanded(
                 child: ElevatedButton.icon(
-                    icon: const Icon(CupertinoIcons.play_fill),
+                    icon: const Icon(
+                      CupertinoIcons.play_fill,
+                      color: Colors.white,
+                    ),
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                         elevation: 0, backgroundColor: const Color(0xff303035)),
@@ -491,7 +497,10 @@ class _FooterSectionState extends State<FooterSection> {
           child: Row(
             children: [
               ElevatedButton.icon(
-                  icon: const Icon(Icons.apple),
+                  icon: const Icon(
+                    Icons.apple,
+                    color: Colors.white,
+                  ),
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       elevation: 0, backgroundColor: const Color(0xff303035)),
@@ -510,7 +519,10 @@ class _FooterSectionState extends State<FooterSection> {
                 width: 15,
               ),
               ElevatedButton.icon(
-                  icon: const Icon(CupertinoIcons.play_fill),
+                  icon: const Icon(
+                    CupertinoIcons.play_fill,
+                    color: Colors.white,
+                  ),
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       elevation: 0, backgroundColor: const Color(0xff303035)),
@@ -921,7 +933,10 @@ class _FooterSectionState extends State<FooterSection> {
           child: Row(
             children: [
               ElevatedButton.icon(
-                  icon: const Icon(Icons.apple),
+                  icon: const Icon(
+                    Icons.apple,
+                    color: Colors.white,
+                  ),
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       elevation: 0, backgroundColor: const Color(0xff303035)),
@@ -940,7 +955,10 @@ class _FooterSectionState extends State<FooterSection> {
                 width: 15,
               ),
               ElevatedButton.icon(
-                  icon: const Icon(CupertinoIcons.play_fill),
+                  icon: const Icon(
+                    CupertinoIcons.play_fill,
+                    color: Colors.white,
+                  ),
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       elevation: 0, backgroundColor: const Color(0xff303035)),
